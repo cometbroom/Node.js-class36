@@ -18,7 +18,7 @@ app.post("/weather", (req, res) => {
     const cityName = req.body.cityName;
     res.status(200).json({ cityName });
   } else {
-    res.status(400).send("Could not find city in request");
+    res.status(400).json({message: "Could not find city in request"});
   }
 });
 
