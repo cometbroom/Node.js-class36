@@ -1,4 +1,3 @@
-
 import express from "express";
 import fetch from "node-fetch";
 import { API_KEY } from "./sources/keys.js";
@@ -25,7 +24,9 @@ app.post("/weather/:city", async (req, res) => {
       API_URL + `weather?q=${cityName}&units=metric&appid=${API_KEY}`
     );
     const data = await response.json();
-    res.status(response.status).json({ [cityName]: data.main.temp });
+    res
+      .status(response.status)
+      .json({ weatherText: `${[cityName]} ${data.main.temp}` });
   } catch (error) {
     res.status(404).json({ weatherText: "City is not found!" });
   }

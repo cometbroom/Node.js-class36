@@ -3,6 +3,7 @@ import supertest from "supertest";
 
 const request = supertest(app);
 
+//Returns page with status code 200
 describe("GET /", () => {
   it("Should respond with a 200 status code", async () => {
     const response = await request.get("/");
@@ -10,6 +11,7 @@ describe("GET /", () => {
   });
 });
 
+//Conditions on POST endpoint
 describe("POST /weather", () => {
   it("Should respond with a 200 status code", async () => {
     const response = await request.post("/weather/alkmaar");
